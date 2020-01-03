@@ -32,7 +32,7 @@ class Command(BaseCommand):
             subcategories = Category.objects.filter(
                 id__gt=category.id + 10 * num
             )
-            category.subcategories = subcategories[:10]
+            category.subcategories.set(subcategories[:10])  # Change for newer version of Django
             category.save()
 
         self.stdout.write("Generating products")
