@@ -75,9 +75,13 @@ WSGI_APPLICATION = 'djangotip.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# Since we just want to use the django-query-profiler on the command line, this is the only change we need
+# Probably a good idea to add this import at the top.  We are adding it here for good visual diffs on github :-)
+
+from django_query_profiler.settings import *
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django_query_profiler.django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }

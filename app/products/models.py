@@ -14,7 +14,7 @@ class Category(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=120)
 
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)  # Change for newer version of Django
 
     def __str__(self):
         return self.title
